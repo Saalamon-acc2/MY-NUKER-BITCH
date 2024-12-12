@@ -4,10 +4,10 @@ import msvcrt
 # Initialize colorama
 init()
 
-# Define the key and ASCII art with gradient effect
 
 
-# Define a function to create a smooth gradient effect
+
+
 def gradient_text(text, start_color, end_color):
     gradient_text = ""
     steps = len(text)
@@ -20,9 +20,9 @@ def gradient_text(text, start_color, end_color):
         gradient_text += f"\033[38;2;{r};{g};{b}m{char}"
     return gradient_text + Style.RESET_ALL
 
-# Colors in RGB (purple to lime green)
-start_color = (128, 0, 128)   # Purple
-end_color = (0, 255, 0)       # Lime Green
+
+start_color = (128, 0, 128) 
+end_color = (0, 255, 0)     
 
 ascii_art = '''
  ________  ________  ________  ___       ________  _____ ______   ________  ________      
@@ -41,30 +41,30 @@ ascii_art = '''
     \|__| \|__|\|_______|\|__| \|__|\|_______|\|__|\|__|                                                                                                    
 '''
 
-# Print the ASCII art with the gradient effect
+
 for line in ascii_art.splitlines():
     print(gradient_text(line, start_color, end_color))
     sleep(0.05)  # Optional: Add delay for smooth effect
 
-# Prompt for key input
+
 def masked_input(prompt, color):
     print(color + prompt, end="", flush=True)
     input_str = ""
     while True:
-        char = msvcrt.getch()  # Get character without displaying it
-        if char == b'\r':  # Enter key
+        char = msvcrt.getch() 
+        if char == b'\r': 
             break
-        elif char == b'\x08':  # Backspace
+        elif char == b'\x08':  
             if len(input_str) > 0:
                 input_str = input_str[:-1]
-                print("\b \b", end="", flush=True)  # Erase the last *
+                print("\b \b", end="", flush=True) 
         else:
             input_str += char.decode("utf-8")
-            print("*", end="", flush=True)  # Print * for each character
-    print()  # Move to next line after input
+            print("*", end="", flush=True) 
+    print()  
     return input_str
 
-# Your key value for comparison
+
 key = "Saalamon"
 
 # Use masked input for key input
@@ -98,26 +98,26 @@ def masked_input(prompt, color):
     input_str = ""
     while True:
         char = msvcrt.getch()
-        if char == b'\r':  # Enter key
+        if char == b'\r': 
             break
-        elif char == b'\x08':  # Backspace
+        elif char == b'\x08':  
             if len(input_str) > 0:
                 input_str = input_str[:-1]
                 print("\b \b", end="", flush=True)
         else:
             input_str += char.decode("utf-8")
             print("*", end="", flush=True)
-    print()  # Move to the next line after input
+    print() 
     return input_str
 
-# Usage
-token = masked_input("Bot Token: ", Fore.MAGENTA)
-prefix = input("Prefix: ")
+
+token = masked_input("Token del Bot: ", Fore.MAGENTA)
+prefix = input("Prefisso: ")
 stats = 'aeco-premium'
-chan = input("Channel Name: ")
-spamdata = input("Spam content: ")
-rol = input("Spam Roles: ")
-webname = input("Spam Webhook names: ")
+chan = input("Nome Del Canale: ")
+spamdata = input(" Nome Messaggi spam: ")
+rol = input("Nome Ruoli spam: ")
+webname = input("Nome Webhook spam: ")
 amountss = 1000
 intents = discord.Intents().all()
 intents.message_content = True
@@ -157,14 +157,14 @@ async def on_ready():
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀
 https://discord.com/oauth2/authorize?client_id=1206082729649905714&permissions=8&scope=bot
 """)
-    print("Commands - nuke, scc, sdc, sdr, scr, spam, swh")
-    print(f"Logged in as {bot.user.name}")
-    print(f"Prefix - {prefix}")
+    print("Comandi - nuke, scc, sdc, sdr, scr, spam, swh")
+    print(f"è online {bot.user.name}")
+    print(f"Prefisso - {prefix}")
 
  
 def logo():
-    print(f"Logged in as {bot.user.name}")
-    print(f"Prefix - {prefix}")
+    print(f"è online {bot.user.name}")
+    print(f"Prefisso - {prefix}")
  
 @bot.command()
 async def scc(ctx):
@@ -265,7 +265,7 @@ async def on_guild_channel_create(channel):
             for i in range(10000):   
                  await webhook.send(spamdata)
         except:
-            print("Ratelimited")
+            print("Ratelimitato")
  
  
 bot.run(token)
